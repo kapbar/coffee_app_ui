@@ -10,6 +10,7 @@ class HomePage extends StatelessWidget {
       body: Column(
         children: [
           Row(),
+          Row(),
         ],
       ),
     );
