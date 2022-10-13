@@ -6,7 +6,7 @@ class CoffeeTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 25, bottom: 25),
+      padding: const EdgeInsets.only(left: 20, bottom: 20),
       child: Container(
         padding: const EdgeInsets.all(12),
         width: 200,
@@ -15,14 +15,24 @@ class CoffeeTile extends StatelessWidget {
           color: Colors.black54,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Image.asset('assets/images/latte.jpg'),
+            SizedBox(
+              width: 185,
+              child: ClipRRect(
+                clipBehavior: Clip.hardEdge,
+                borderRadius: BorderRadius.circular(12),
+                child: Image.asset(
+                  'assets/images/latte.jpg',
+                  height: 185,
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
                     'Latte',
