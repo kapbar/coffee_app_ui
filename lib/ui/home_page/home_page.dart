@@ -64,9 +64,9 @@ class _HomePageState extends State<HomePage> {
                 Text(
                   'Find the best coffee for you',
                   style:
-                      GoogleFonts.bebasNeue(fontSize: 56, color: Colors.white),
+                      GoogleFonts.bebasNeue(fontSize: 50, color: Colors.white),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 15),
                 TextField(
                   decoration: InputDecoration(
                     contentPadding: const EdgeInsets.all(16),
@@ -93,7 +93,12 @@ class _HomePageState extends State<HomePage> {
                 if (selectedCoffee == 2) const CoffeeTileAmericano(),
                 if (selectedCoffee == 3) const CoffeeTileEspresso(),
                 if (selectedCoffee == 4) const CoffeeTileIcedCoffee(),
-                const SizedBox(height: 10),
+                const SizedBox(height: 30),
+                const Text(
+                  'Special for you',
+                  style: TextStyle(fontSize: 18, color: Colors.white),
+                ),
+                const SizedBox(height: 15),
                 const CoffeeSpecialForYou(),
                 const SizedBox(height: 10),
               ],

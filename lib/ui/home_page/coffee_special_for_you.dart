@@ -7,7 +7,6 @@ class CoffeeSpecialForYou extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       borderRadius: BorderRadius.circular(20.0),
-      radius: 0,
       onTap: () {},
       child: Container(
         height: 194,
@@ -43,7 +42,7 @@ class CoffeeSpecialForYou extends StatelessWidget {
                   const SizedBox(height: 10),
                   const Text(
                     'Ice Coffee',
-                    style: TextStyle(fontSize: 22, color: Colors.orange),
+                    style: TextStyle(fontSize: 25, color: Colors.orange),
                   ),
                   const SizedBox(height: 6),
                   Text(

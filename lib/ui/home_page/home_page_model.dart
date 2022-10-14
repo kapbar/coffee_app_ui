@@ -1,9 +1,12 @@
 import 'package:coffee_app_ui/data/list_coffee.dart';
 import 'package:coffee_app_ui/data/list_coffee_type.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:coffee_app_ui/ui/coffee_details/coffee_details_screen.dart';
+import 'package:coffee_app_ui/ui/coffee_details/coffee_details_screen_model.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomePageViewModel extends ChangeNotifier {
-  final listCoffeeType = CoffeeTypeList.coffeeType;
+  final listCoffeeType = CoffeeListData.coffeeTypeList;
   final cappucinoList = CoffeeList.cappucino;
   final latteList = CoffeeList.latte;
   final americanoList = CoffeeList.americano;
@@ -38,5 +41,20 @@ class HomePageViewModel extends ChangeNotifier {
       _selectedBottomNavigation = index;
     }
     notifyListeners();
+  }
+
+  void onCoffeeTap(BuildContext context, int index) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ChangeNotifierProvider(
+          create: (BuildContext context) {
+            return CoffeeDetailsScreenModel(coffee: cappucinoList[index]);
+          },
+          child: const CoffeeDetailsScreen(),
+        ),
+        settings: RouteSettings(arguments: cappucinoList[index]),
+      ),
+    );
   }
 }
