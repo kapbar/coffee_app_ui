@@ -10,9 +10,9 @@ class AppButton extends StatelessWidget {
       height: 45,
       width: 45,
       decoration: BoxDecoration(
-        color: Colors.black54,
+        color: Colors.black87,
         borderRadius: BorderRadius.circular(13.0),
-        border: Border.all(color: Colors.grey.shade900),
+        border: Border.all(color: Colors.black54, width: 1.5),
       ),
       child: widget,
     );
