@@ -1,7 +1,7 @@
 abstract class CoffeeList {
   static const List<CoffeeData> cappucino = [
     CoffeeData(
-      image: 'assets/images/cappucino.jpg',
+      image: 'assets/images/cappuccino.jpg',
       name: 'Cappucino',
       title: 'With Almound Milk',
       price: '4.00',
@@ -93,7 +93,7 @@ abstract class CoffeeList {
       price: '4.55',
     ),
     CoffeeData(
-      image: 'assets/images/cappucino.jpg',
+      image: 'assets/images/cappuccino.jpg',
       name: 'Iced Coffee',
       title: 'With Almound Milk',
       price: '4.68',

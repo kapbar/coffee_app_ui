@@ -9,10 +9,10 @@ class CoffeeTileLatte extends StatelessWidget {
   Widget build(BuildContext context) {
     final latte = context.read<HomePageViewModel>().latteList;
     return SizedBox(
-      height: 350,
+      height: 310,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 3,
+        itemCount: latte.length,
         itemBuilder: (BuildContext context, int index) {
           return Padding(
             padding: const EdgeInsets.only(right: 15.0),
@@ -46,7 +46,7 @@ class CoffeeTileLatte extends StatelessWidget {
                       children: [
                         Text(
                           latte[index].name,
-                          style: const TextStyle(fontSize: 20),
+                          style: const TextStyle(fontSize: 20, color: Colors.white),
                         ),
                         const SizedBox(height: 4),
                         Text(
@@ -61,12 +61,28 @@ class CoffeeTileLatte extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                         Text(
-                          '\$${latte[index].price}',
-                          style: const TextStyle(fontSize: 20),
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              const TextSpan(
+                                text: '\$',
+                                style: TextStyle(
+                                    color: Colors.orange, fontSize: 20),
+                              ),
+                              TextSpan(
+                                text: ' ${latte[index].price}',
+                                style: const TextStyle(fontSize: 20),
+                              ),
+                            ],
+                          ),
                         ),
                         ElevatedButton(
                           style: ButtonStyle(
+                            shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
                             padding: MaterialStateProperty.all(EdgeInsets.zero),
                             minimumSize:
                                 MaterialStateProperty.all(const Size(32, 32)),

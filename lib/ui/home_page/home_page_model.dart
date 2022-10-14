@@ -9,8 +9,12 @@ class HomePageViewModel extends ChangeNotifier {
   final americanoList = CoffeeList.americano;
   final espressoList = CoffeeList.espresso;
   final icedCoffeeList = CoffeeList.icedCoffee;
+
   int _selectedCoffee = 0;
   int get selectedCoffee => _selectedCoffee;
+
+  int _selectedBottomNavigation = 0;
+  int get selectedBottomNavigation => _selectedBottomNavigation;
 
   void coffeeTypeSelected(int index) {
     if (_selectedCoffee == index) return;
@@ -19,6 +23,20 @@ class HomePageViewModel extends ChangeNotifier {
     }
     listCoffeeType[index][1] = true;
     _selectedCoffee = index;
+    notifyListeners();
+  }
+
+  void bottomNavSelected(int index) {
+    if (index == _selectedBottomNavigation) return;
+    if (index == 0) {
+      _selectedBottomNavigation = index;
+    } else if (index == 1) {
+      _selectedBottomNavigation = index;
+    } else if (index == 2) {
+      _selectedBottomNavigation = index;
+    } else if (index == 3) {
+      _selectedBottomNavigation = index;
+    }
     notifyListeners();
   }
 }
