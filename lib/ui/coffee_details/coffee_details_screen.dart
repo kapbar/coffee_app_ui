@@ -5,6 +5,7 @@ import 'package:coffee_app_ui/widgets/app_button.dart';
 import 'package:coffee_app_ui/widgets/app_button_size.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:readmore/readmore.dart';
 
 class CoffeeDetailsScreen extends StatelessWidget {
   const CoffeeDetailsScreen({super.key});
@@ -14,22 +15,23 @@ class CoffeeDetailsScreen extends StatelessWidget {
     final model = context.watch<CoffeeDetailsScreenModel>();
     return Scaffold(
       backgroundColor: Colors.grey[900],
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            child: Stack(
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Stack(
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(37),
                   child: Image.asset(
                     model.coffee.image,
                     width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height * 0.59,
                     fit: BoxFit.cover,
                   ),
                 ),
                 Positioned(
-                  top: 45,
+                  top: 60,
                   left: 20,
                   child: AppButton(
                     widget: Icon(
@@ -40,7 +42,7 @@ class CoffeeDetailsScreen extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  top: 45,
+                  top: 60,
                   right: 20,
                   child: AppButton(
                     widget: Icon(
@@ -219,110 +221,122 @@ class CoffeeDetailsScreen extends StatelessWidget {
                 ),
               ],
             ),
-          ),
-          const SizedBox(height: 25),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  'Description',
-                  style: TextStyle(color: Colors.white, fontSize: 18),
-                ),
-                const SizedBox(height: 12),
-                const Text(
-                  'A cappuccino is a coffee-based drink made primarily from espresso and milk...',
-                  style: TextStyle(color: Colors.white, fontSize: 16),
-                ),
-                const SizedBox(height: 40),
-                const Text(
-                  'Size',
-                  style: TextStyle(color: Colors.white, fontSize: 18),
-                ),
-                const SizedBox(height: 13),
-                SizedBox(
-                  height: 40,
-                  child: ListView.separated(
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: model.coffeeSizeList.length,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (BuildContext context, int index) {
-                      return InkWell(
-                        overlayColor:
-                            MaterialStateProperty.all(Colors.transparent),
-                        onTap: () => model.coffeeSizeSelected(index),
-                        child: AppButtonSize(
-                          size: model.coffeeSizeList[index][0],
-                          isSelected: model.coffeeSizeList[index][1],
-                        ),
-                      );
-                    },
-                    separatorBuilder: (BuildContext context, int index) =>
-                        const SizedBox(width: 22),
+            const SizedBox(height: 25),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Description',
+                    style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
-                ),
-                const SizedBox(height: 40),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Prise',
-                            style: TextStyle(color: Colors.white),
+                  const SizedBox(height: 12),
+                  const ReadMoreText(
+                    'A cappuccino is a coffee-based drink made primarily from espresso and milk. It consists of one-third espresso, one-third heated milk and generally served in a 6 ti 8 - ounce cup.',
+                    trimLines: 2,
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                    trimMode: TrimMode.Line,
+                    trimCollapsedText: 'Read more',
+                    trimExpandedText: 'Show less',
+                    lessStyle: TextStyle(
+                      fontSize: 15,
+                      color: Colors.orange,
+                    ),
+                    moreStyle: TextStyle(
+                      fontSize: 15,
+                      color: Colors.orange,
+                    ),
+                  ),
+                  const SizedBox(height: 40),
+                  const Text(
+                    'Size',
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                  const SizedBox(height: 13),
+                  SizedBox(
+                    height: 40,
+                    child: ListView.separated(
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: model.coffeeSizeList.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (BuildContext context, int index) {
+                        return InkWell(
+                          overlayColor:
+                              MaterialStateProperty.all(Colors.transparent),
+                          onTap: () => model.coffeeSizeSelected(index),
+                          child: AppButtonSize(
+                            size: model.coffeeSizeList[index][0],
+                            isSelected: model.coffeeSizeList[index][1],
                           ),
-                          const SizedBox(height: 3),
-                          RichText(
-                            text: TextSpan(
-                              children: [
-                                const TextSpan(
-                                  text: '\$ ',
-                                  style: TextStyle(
-                                      color: Colors.orange, fontSize: 20),
-                                ),
-                                TextSpan(
-                                  text: model.coffee.price,
-                                  style: const TextStyle(fontSize: 20),
-                                ),
-                              ],
+                        );
+                      },
+                      separatorBuilder: (BuildContext context, int index) =>
+                          const SizedBox(width: 22),
+                    ),
+                  ),
+                  const SizedBox(height: 40),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Prise',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            const SizedBox(height: 3),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  const TextSpan(
+                                    text: '\$ ',
+                                    style: TextStyle(
+                                        color: Colors.orange, fontSize: 20),
+                                  ),
+                                  TextSpan(
+                                    text: model.coffee.price,
+                                    style: const TextStyle(fontSize: 20),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          padding: MaterialStateProperty.all(
+                            const EdgeInsets.symmetric(
+                              horizontal: 85,
+                              vertical: 18,
                             ),
                           ),
-                        ],
-                      ),
-                    ),
-                    ElevatedButton(
-                      style: ButtonStyle(
-                        padding: MaterialStateProperty.all(
-                          const EdgeInsets.symmetric(
-                            horizontal: 85,
-                            vertical: 18,
+                          shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
                           ),
                         ),
-                        shape: MaterialStateProperty.all(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
+                        onPressed: () {},
+                        child: const Text(
+                          'Buy Now',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
                           ),
                         ),
                       ),
-                      onPressed: () {},
-                      child: const Text(
-                        'Buy Now',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 15),
-              ],
+                    ],
+                  ),
+                  const SizedBox(height: 15),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

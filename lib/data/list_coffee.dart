@@ -3,7 +3,7 @@ abstract class CoffeeList {
     CoffeeData(
       image: 'assets/images/cappuccino.jpg',
       name: 'Cappucino',
-      title: 'With Almound Milk',
+      title: 'With Oat Milk',
       price: '4.00',
     ),
     CoffeeData(
@@ -13,9 +13,9 @@ abstract class CoffeeList {
       price: '4.60',
     ),
     CoffeeData(
-      image: 'assets/images/americano.jpg',
+      image: 'assets/images/iced_coffee.jpg',
       name: 'Cappucino',
-      title: 'With Almound Milk',
+      title: 'With Chocolate',
       price: '5.20',
     ),
   ];
@@ -29,7 +29,7 @@ abstract class CoffeeList {
     CoffeeData(
       image: 'assets/images/iced_coffee.jpg',
       name: 'Latte',
-      title: 'With Almound Milk',
+      title: 'With Oat Milk',
       price: '4.55',
     ),
     CoffeeData(
@@ -42,7 +42,7 @@ abstract class CoffeeList {
   static const List<CoffeeData> americano = [
     CoffeeData(
       image: 'assets/images/coffee1.jpg',
-      name: 'Americano',
+      name: 'Oat',
       title: 'With Almound Milk',
       price: '4.48',
     ),
@@ -54,7 +54,7 @@ abstract class CoffeeList {
     ),
     CoffeeData(
       image: 'assets/images/coffee3.jpg',
-      name: 'Americano',
+      name: 'Oat',
       title: 'With Almound Milk',
       price: '5.68',
     ),
@@ -75,7 +75,7 @@ abstract class CoffeeList {
     CoffeeData(
       image: 'assets/images/americano.jpg',
       name: 'Espresso',
-      title: 'With Almound Milk',
+      title: 'With Oat Milk',
       price: '6.72',
     ),
   ];
@@ -83,7 +83,7 @@ abstract class CoffeeList {
     CoffeeData(
       image: 'assets/images/iced_coffee.jpg',
       name: 'Iced Coffee',
-      title: 'With Almound Milk',
+      title: 'With Oat Milk',
       price: '3.48',
     ),
     CoffeeData(
@@ -95,7 +95,7 @@ abstract class CoffeeList {
     CoffeeData(
       image: 'assets/images/cappuccino.jpg',
       name: 'Iced Coffee',
-      title: 'With Almound Milk',
+      title: 'With Oat Milk',
       price: '4.68',
     ),
   ];

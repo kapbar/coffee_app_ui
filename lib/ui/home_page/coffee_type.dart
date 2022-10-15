@@ -20,15 +20,29 @@ class CoffeeType extends StatelessWidget {
             child: Center(
               child: Padding(
                 padding: const EdgeInsets.only(right: 20.0),
-                child: Text(
-                  model.listCoffeeType[index][0],
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: model.listCoffeeType[index][1]
-                        ? Colors.orange
-                        : Colors.white,
-                  ),
+                child: Column(
+                  children: [
+                    Text(
+                      model.listCoffeeType[index][0],
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: model.listCoffeeType[index][1]
+                            ? Colors.orange
+                            : Colors.white,
+                      ),
+                    ),
+                    if (model.selectedCoffee == index)
+                      Container(
+                        margin: const EdgeInsets.only(top: 5),
+                        height: 8,
+                        width: 8,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(4),
+                          color: Colors.orange,
+                        ),
+                      ),
+                  ],
                 ),
               ),
             ),
