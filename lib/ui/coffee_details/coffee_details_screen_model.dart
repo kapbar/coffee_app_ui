@@ -7,6 +7,7 @@ class CoffeeDetailsScreenModel extends ChangeNotifier {
   final CoffeeData coffee;
   final coffeeSizeList = CoffeeListData.coffeeSizeList;
   int _selectedSize = 0;
+  bool isFavorite = false;
 
   void coffeeSizeSelected(int index) {
     if (_selectedSize == index) return;
@@ -15,6 +16,11 @@ class CoffeeDetailsScreenModel extends ChangeNotifier {
     }
     coffeeSizeList[index][1] = true;
     _selectedSize = index;
+    notifyListeners();
+  }
+
+  void coffeeToggleFavorite() {
+    isFavorite = !isFavorite;
     notifyListeners();
   }
 }

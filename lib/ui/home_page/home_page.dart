@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                     prefixIcon: const Icon(Icons.search_rounded),
                     hintText: 'Find Your Coffee...',
                     hintStyle: const TextStyle(fontSize: 15),
-                    fillColor: Colors.black26,
+                    fillColor: Colors.black54,
                     filled: true,
                     enabledBorder: OutlineInputBorder(
                       borderSide: const BorderSide(color: Colors.transparent),

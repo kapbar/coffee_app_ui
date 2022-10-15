@@ -12,7 +12,7 @@ class AppButtonSize extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 110,
+      width: MediaQuery.of(context).size.width / 3.7,
       decoration: BoxDecoration(
         color: Colors.black87,
         borderRadius: BorderRadius.circular(13.0),
