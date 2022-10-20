@@ -1,4 +1,14 @@
-# coffee_app_ui
+# Coffee App UI
+
+<p>
+<img src="Screenshot_1666278190.png" width = 240>
+<img src="Screenshot_1666278193.png" width = 240>
+<img src="Screenshot_1666278211.png" width = 240>
+<img src="Screenshot_1666278232.png" width = 240>
+<img src="Screenshot_1666278236.png" width = 240>
+<img src="Screenshot_1666278239.png" width = 240>
+<img src="Screenshot_1666278248.png" width = 240>
+  </p>
 
 A new Flutter project.
 
